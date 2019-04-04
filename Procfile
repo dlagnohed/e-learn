@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/brainiac
+web: target/universal/stage/bin/e-learn

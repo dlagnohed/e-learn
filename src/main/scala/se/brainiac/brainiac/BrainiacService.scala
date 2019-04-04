@@ -10,7 +10,7 @@ class BrainiacService[F[_]: Effect] extends Http4sDsl[F] {
 
   val service: HttpService[F] = HttpService[F] {
     case request @ GET -> "static" /: path => StaticFile.fromResource(path.toString, Some(request)).getOrElseF(NotFound())
-    case request @ GET -> Root / path if List(".js", ".css", ".map", ".html", ".webm", ".pdf").exists(path.endsWith) => static(path, request)
+    case request @ GET -> Root / path if List(".js", ".css", ".map", ".html", ".webm", ".pdf",".jpg",".mp3","png", "").exists(path.endsWith) => static(path, request)
     case request @ GET -> Root  => static("index.html", request)
   }
 }
